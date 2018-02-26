@@ -1,0 +1,25 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+
+struct inputStruct
+{
+	int i;
+};
+
+struct outputStruct
+{
+	float o;
+};
+
+StructuredBuffer<inputStruct> input;
+RWStructuredBuffer<outputStruct> output;
+
+[numthreads(16,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	int index = id.x;
+	output[index].o = input[index].i + 10;
+}
