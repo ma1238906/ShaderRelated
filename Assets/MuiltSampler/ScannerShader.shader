@@ -140,7 +140,7 @@
 				fixed4 onlyEdgeColor = lerp(_EdgeColor, _BackgroundColor, edge);
 
 				fixed4 col = lerp(withEdgeColor, onlyEdgeColor, _EdgeOnly);
-				return fixed4(col.rgb,col.a * (maskColor.a));
+				return fixed4(col.rgb, col.a * (maskColor.a));
 			}
 			ENDCG
 		}
